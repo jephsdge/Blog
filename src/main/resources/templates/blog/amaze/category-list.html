@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="category-list-fragment" class="am-u-lg-8 am-u-sm-12">
+    <main class="articles-list">
+        <div>
+            <th:block th:if="${null != categories}">
+<!--                <th:block th:each="category : ${categories}">-->
+                <div class="tags">
+                    <th:block th:if="${null != categories}">
+                        <th:block th:each="category : ${categories}">
+                            <a rel="tag" th:href="@{'/tag/' + ${category.categoryName}}">
+                                <th:block th:text="${category.categoryName}+'('+${category.categoryNums}+')'"></th:block>
+                            </a>
+                        </th:block>
+                    </th:block>
+                </div>
+            </th:block>
+        </div>
+    </main>
+</div>
+</html>
